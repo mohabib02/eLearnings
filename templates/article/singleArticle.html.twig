@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="row justify-content-md-center mt-5 ">
+		<div class="col-sm-8">
+			<div class="card mb-3">
+				<h3 class="card-header text-justify">{{article.title}}</h3>
+				<div
+					class="card-body">
+					{# <h5 class="card-title">Category Sports</h5> #}
+					<h6 class="text-center">written by
+						{{article.user.lastName}}
+					</h6>
+					<h6 class="card-subtitle text-muted text-center">Created on
+						{{article.createdAt | date('d/m/Y' ) }}
+						at
+						{{article.createdAt | date('H:i')}}</h6>
+				</div>
+				<img src="/assets/images/{{article.image}}" alt="" class=" articleImage text-center mt-2">
+				<div class="card-body">
+					<p class="card-text">{{article.content | raw}}</p>
+					<a href="{{path('home')}}" class="card-link btn btn-secondary">Go back</a>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
